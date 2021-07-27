@@ -33,7 +33,7 @@ If supported by your PWS, connect your PWS with `WS View` (and also the 'older' 
 <img src="images/WS_View_setup.jpeg" width=400>
 
 ## Data
-Data received from the PWS:
+Example of data received from the PWS:
 
 ```
 'PASSKEY': 'D7E76ED7E76D932CB06EC9A811179BA6', 'stationtype': 'EasyWeatherV1.6.0', 'dateutc': '2021-07-25+16:45:28'
