@@ -28,7 +28,7 @@ If supported by your PWS, connect your PWS with `WS View` (and also the 'older' 
 4. `Upload Interval`, leave it `60` seconds
 5. Click on `Save`
 
-<img src="https://github.com/Xorfor/My-HA-Configuration/blob/main/PWS/WS_View_setup.jpeg" width=400>
+<img src="images/WS_View_setup.jpeg" width=400>
 
 ## Data
 Data received from the PWS:
