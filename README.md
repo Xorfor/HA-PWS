@@ -1,5 +1,7 @@
 # PWS
-Capture data directly from your PWS
+This Domoticz Plugin allows you to get the data **directly** from your own personal weather station (PWS). So this plugin does **NOT** require that you register your PWS to cloud accounts, like WeatherUnderground (support will finish in the near future!), Ecowitt (also displays your indoor sensors in the cloud!), WeatherCloud, WOW (takes weeks to get key), etc, or the use of WeeWX (extra software).
+
+**This plugin will directly capture the data from your weather station!** 
 
 ## Supported devices
 In general, if the station is supplied with `EasyWeather` software (version 1.4.x, 1.5.x), it is likely that the station will work with this HA Configuration!
