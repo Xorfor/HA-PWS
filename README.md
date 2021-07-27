@@ -45,9 +45,9 @@ Data received from the PWS:
 ```
 
 ## Configuration
-Use the configuration.yaml to setup the PWS entities.
+Use the [configuration.yaml](configuration.yaml) to setup the PWS entities.
 
-Use the customize.yaml to get appropriate icons for the entities
+Use the [customize.yaml](customize.yaml) to get appropriate icons for the entities
 
 ## Result
 ![Screenshot](images/entities.jpg)
