@@ -1,0 +1,117 @@
+# Sources:
+#   https://github.com/Xorfor/Domoticz-PWS-Plugin/blob/master/plugin.py
+#   https://community.home-assistant.io/t/weather-station-recommendation/55353/23
+#   https://www.home-assistant.io/integrations/template/
+template:
+  - trigger:
+      - platform: webhook
+        webhook_id: pws
+    sensor:
+      #
+      # --------------------------------------------------------------------------------
+      #
+      # Temperature
+      - name: "PWS - Temperature"
+        device_class: temperature
+        state: "{{ ((trigger.data.tempf | float - 32) / 1.8) | round(1) }}"
+        unit_of_measurement: "°C"
+      - name: "PWS - Temperature (indoor)"
+        device_class: temperature
+        state: "{{ ((trigger.data.tempinf | float - 32) / 1.8) | round(1) }}"
+        unit_of_measurement: "°C"
+      #
+      # --------------------------------------------------------------------------------
+      #
+      # Humidity
+      - name: "PWS - Humidity"
+        device_class: humidity
+        state: "{{ trigger.data.humidity }}"
+        unit_of_measurement: "%"
+      - name: "PWS - Humidity (indoor)"
+        device_class: humidity
+        state: "{{ trigger.data.humidityin }}"
+        unit_of_measurement: "%"
+      #
+      # --------------------------------------------------------------------------------
+      #
+      # Barometer
+      - name: "PWS - Barometer (relative)"
+        device_class: pressure
+        state: "{{ (trigger.data.baromrelin | float * 33.86) | round(1) }}"
+        unit_of_measurement: "hPa"
+      - name: "PWS - Barometer (absolute)"
+        device_class: pressure
+        state: "{{ (trigger.data.baromabsin | float * 33.86) | round(1) }}"
+        unit_of_measurement: "hPa"
+      #
+      # --------------------------------------------------------------------------------
+      #
+      # Rain
+      - name: "PWS - Rainrate"
+        state: "{{ (trigger.data.rainratein | float * 2.54) | round(1) }}"
+        unit_of_measurement: "mm/h"
+      - name: "PWS - Rain"
+        state: "{{ (trigger.data.dailyrainin | float * 2.54 * 10) | round(1) }}"
+        unit_of_measurement: "mm"
+      #
+      # --------------------------------------------------------------------------------
+      #
+      # Sun
+      - name: "PWS - Solar radiation"
+        device_class: illuminance
+        state: "{{ trigger.data.solarradiation }}"
+        unit_of_measurement: "W/m²"
+      - name: "PWS - UV"
+        device_class: illuminance
+        state: "{{ trigger.data.uv }}"
+        unit_of_measurement: "UV Index"
+      #
+      # --------------------------------------------------------------------------------
+      #
+      # Wind
+      - name: "PWS - Wind speed"
+        state: "{{ (trigger.data.windspeedmph | float * 0.44704) | round(1) }}"
+        unit_of_measurement: "m/s"
+      - name: "PWS - Wind gust"
+        state: "{{ (trigger.data.windgustmph | float * 0.44704) | round(1) }}"
+        unit_of_measurement: "m/s"
+      - name: "PWS - Wind direction"
+        state: "{{ trigger.data.winddir }}"
+        unit_of_measurement: "°"
+      - name: "PWS - Wind direction (text)"
+        state: >-
+          {% set direction = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW', 'N'] %}
+          {% set degree = states('sensor.pws_wind_direction') | float %}
+          {{ direction[((degree + 11.25) / 22.5) | int] }}
+      #
+      # --------------------------------------------------------------------------------
+      #
+      # Misc
+      - name: "PWS - Stationtype"
+        state: "{{ trigger.data.stationtype }}"
+      - name: "PWS - Model"
+        state: "{{ trigger.data.model }}"
+      #
+      # --------------------------------------------------------------------------------
+      #
+      # Ecowitt does not support the extra information as with Wunderground, so lets calculate them
+      #
+      # Dewpoint
+      #   https://www.ajdesigner.com/phphumidity/dewpoint_equation_dewpoint_temperature.php
+      - name: "PWS - Dewpoint"
+        state: "{{ ((trigger.data.humidity | float / 100) ** (1 / 8) * (112 + 0.9 * ((trigger.data.tempf | float - 32) / 1.8)) + 0.1 * ((trigger.data.tempf | float - 32) / 1.8) - 112) | round(1) }}"
+        unit_of_measurement: "°C"
+      #
+      # Windchill
+      #   https://en.wikipedia.org/wiki/Wind_chill
+      - name: "PWS - Windchill"
+        state: >
+          {% set v = states('sensor.pws_wind_speed') | float * 3.6 %}
+          {% set t = states('sensor.pws_temperature') | float %}
+          {% if t < 10.0 and v > 4.8 %}
+            {% set v = v ** 0.16 %}
+            {{ (13.12 + 0.6215 * t - 11.37 * v + 0.3965 * t * v) | round(1) }}
+          {% else %}
+            {{ t }}
+          {% endif %}
+        unit_of_measurement: "°C"
