@@ -53,3 +53,4 @@ Use the [customize.yaml](customize.yaml) to get appropriate icons for the entiti
 
 ## Result
 ![Screenshot](images/entities.jpg)
+![Screenshot](images/overview.jpg)
