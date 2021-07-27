@@ -51,6 +51,6 @@ Use the [configuration.yaml](configuration.yaml) to setup the PWS entities.
 
 Use the [customize.yaml](customize.yaml) to get appropriate icons for the entities
 
-## Result
+## Screenshots
 ![Screenshot](images/entities.jpg)
 ![Screenshot](images/overview.jpg)
