@@ -1,0 +1,18 @@
+sensor.pws_solar_radiation:
+  icon: mdi:white-balance-sunny
+sensor.pws_humidity:
+  icon: mdi:water
+sensor.pws_humidity_indoor:
+  icon: mdi:water
+sensor.pws_wind_speed:
+  icon: mdi:weather-windy
+sensor.pws_wind_gust:
+  icon: mdi:weather-windy
+sensor.pws_wind_direction:
+  icon: mdi:weather-windy
+sensor.pws_wind_direction_text:
+  icon: mdi:weather-windy
+sensor.pws_rainrate:
+  icon: mdi:water
+sensor.pws_rain:
+  icon: mdi:water
