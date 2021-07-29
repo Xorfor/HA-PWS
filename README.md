@@ -54,3 +54,6 @@ Use the [customize.yaml](customize.yaml) to get appropriate icons for the entiti
 ## Screenshots
 ![Screenshot](images/entities.jpg)
 ![Screenshot](images/overview.jpg)
+
+## Support
+[By me a 🍺](https://www.buymeacoffee.com/xorfor)
