@@ -11,8 +11,8 @@ span:
 header:
   show: true
   title: Rain
+  standard_format: true
   show_states: true
-  colorize_states: true
 series:
   - entity: sensor.pws_rain
     type: column
