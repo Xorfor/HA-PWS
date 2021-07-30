@@ -3,6 +3,9 @@ This Domoticz Plugin allows you to get the data **directly** from your own perso
 
 **This plugin will directly capture the data from your weather station!** 
 
+## Support
+[By me a 🍺](https://www.buymeacoffee.com/xorfor)
+
 ## Supported devices
 In general, if the station is supplied with `EasyWeather` software (version 1.4.x, 1.5.x), it is likely that the station will work with this HA Configuration!
 
@@ -55,5 +58,6 @@ Use the [customize.yaml](customize.yaml) to get appropriate icons for the entiti
 ![Screenshot](images/entities.jpg)
 ![Screenshot](images/overview.jpg)
 
-## Support
-[By me a 🍺](https://www.buymeacoffee.com/xorfor)
+## Possibilities
+[Display rain per day](rain_per_day.md)
+
