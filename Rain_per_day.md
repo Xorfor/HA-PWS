@@ -1,6 +1,7 @@
 # Rain per day
 To display the amount of rain per day, you can use:
 
+## Configuration
 ```yaml
 type: custom:apexcharts-card
 graph_span: 8d
@@ -19,3 +20,6 @@ series:
       func: max
       duration: 24h
 ```
+
+## Screenshot
+![Screenshot](images/rain_per_day.jpg)
