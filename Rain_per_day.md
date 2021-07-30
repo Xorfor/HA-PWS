@@ -1,5 +1,5 @@
 # Rain per day
-To display the amount of rain per day, you can use:
+To display the amount of rain per day.
 
 ## Configuration
 ```yaml
