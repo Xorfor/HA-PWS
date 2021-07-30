@@ -48,7 +48,7 @@ template:
       #
       # Rain
       - name: "PWS - Rainrate"
-        state: "{{ (trigger.data.rainratein | float * 2.54) | round(1) }}"
+        state: "{{ (trigger.data.rainratein | float * 2.54 * 10) | round(1) }}"
         unit_of_measurement: "mm/h"
       - name: "PWS - Rain"
         state: "{{ (trigger.data.dailyrainin | float * 2.54 * 10) | round(1) }}"
