@@ -10,7 +10,7 @@ span:
   offset: '-7d'
 header:
   show: true
-  title: Rain
+  title: PWS - Rain
   standard_format: true
   show_states: true
 series:
@@ -18,7 +18,7 @@ series:
     type: column
     group_by:
       func: max
-      duration: 24h
+      duration: 1d
 ```
 
 ## Screenshot
