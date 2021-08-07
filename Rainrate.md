@@ -1,3 +1,7 @@
+# Rainrate
+To display the rainrate over the last week.
+
+## Configuration
 ```yaml
 type: custom:apexcharts-card
 header:
@@ -21,3 +25,6 @@ series:
     type: line
     curve: stepline
 ```
+
+## Screenshot
+![Screenshot](images/rainrate.jpg)
