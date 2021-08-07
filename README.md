@@ -60,4 +60,5 @@ Use the [customize.yaml](customize.yaml) to get appropriate icons for the entiti
 
 ## Possibilities
 [Display rain per day](Rain_per_day.md)
+[Display rainrate over a week](rainrate.md)
 
