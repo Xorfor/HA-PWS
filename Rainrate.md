@@ -21,7 +21,6 @@ span:
 stacked: true
 series:
   - entity: sensor.pws_rainrate
-    name: Rainrate
     type: line
     curve: stepline
 ```
