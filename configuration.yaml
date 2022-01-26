@@ -3,6 +3,7 @@
 #   https://community.home-assistant.io/t/weather-station-recommendation/55353/23
 #   https://www.home-assistant.io/integrations/template/
 #
+template:
 - trigger:
     - platform: webhook
       webhook_id: pws
